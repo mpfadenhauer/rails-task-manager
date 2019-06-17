@@ -1,0 +1,11 @@
+<!-- app/views/restaurants/index.html.erb -->
+<h1>Your tasks list</h1>
+<% @tasks.each do |task| %>
+  <h2><%= link_to task.title, task_path(task)%></h2>
+  <p><%= task.details %></p>
+  <p><%= task.completed %></p>
+  <p><%= link_to "Delete", delete_task_path(task), method: :delete, data: { confirm: "Are you sure?" } %></p>
+<% end %>
+<br>
+<br>
+<%= link_to '+ Add new task', tasks_new_path %>
